@@ -13,8 +13,8 @@ def formatDay(dt):
 def sendEmail(content):
     port = 587  # For starttls
     smtp_server = 'smtp.gmail.com'
-    sender_email = 'pythonjoed@gmail.com'
-    receiver_email = ['joseph.j.defilippo@gmail.com', 'seema.defilippo@gmail.com']
+    sender_email = 'sender@gmail.com'
+    receiver_email = ['email1@gmail.com', 'email2@gmail.com']
     password = input('Type your password and press enter:')
     message = 'Subject: {}\n\n{}'.format(content.title, content.get_string())
 
