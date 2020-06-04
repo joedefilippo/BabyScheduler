@@ -14,8 +14,8 @@ def sendEmail(content):
     port = 587  # For starttls
     smtp_server = 'smtp.gmail.com'
     sender_email = 'pythonjoed@gmail.com'
-    receiver_email = ['joseph.j.defilippo@gmail.com', 'seema.defilippo@gmail.com']
-    password = input('Type your password and press enter:')
+    receiver_email = [open('C:\\Users\\User\\Desktop\\distribution_list.txt').read()]
+    password = open('C:\\Users\\User\\Desktop\\pw.txt').read()
     message = 'Subject: {}\n\n{}'.format(content.title, content.get_string())
 
     context = ssl.create_default_context()
@@ -25,6 +25,7 @@ def sendEmail(content):
         server.ehlo()  # Can be omitted
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
+        server.quit()
 
 currentTime = datetime.datetime.now()
 
@@ -35,7 +36,7 @@ tbl.field_names = ['Activity', 'Time']
 curYear = currentTime.year
 curMonth = currentTime.month
 curDay = currentTime.day
-wakeTime = datetime.datetime(curYear, curMonth, curDay, 7, 0, 0)
+wakeTime = datetime.datetime(curYear, curMonth, curDay, 7, 45, 0)
 
 formula_1 = wakeTime + datetime.timedelta(minutes= 15)
 nap_1_start = formula_1 + datetime.timedelta(hours = 2)
